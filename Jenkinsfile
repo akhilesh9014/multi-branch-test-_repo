@@ -1,14 +1,13 @@
-def mvnHome
 pipeline {
-   agent any
+	agent  {
+		label 'slave2'
+	}	
    stages {
        stage('Code from GitHub') {
 	        steps {
 			    git 'https://github.com/ravikiran529/Maven-Java-Project.git'
-				script{
-			        mvnHome = tool 'maven3.6'
-			    }
-			}
-	   }
+			    sh "echo 'Hello'"
+	        }
+       }
    } 
 }     
